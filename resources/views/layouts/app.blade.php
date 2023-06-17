@@ -6,7 +6,7 @@
         <title>@yield('title')</title>
         @vite('resources/css/app.css')
     </head>
-    <body class="grid grid-rows-[auto_1fr_auto] min-h-screen">
+    <body class="bg-gray-100 grid grid-rows-[auto_1fr_auto] min-h-screen">
         <header class="bg-white shadow border-b p-5">
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black">DevStagram</h1>
@@ -17,7 +17,7 @@
             </div>
         </header>
         
-        <main class="container mx-auto my-10">
+        <main class="container mx-auto my-10 px-2">
             <h2 class="font-black text-center text-3xl mb-10">
                 @yield('title')
             </h2>
