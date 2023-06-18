@@ -18,6 +18,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/signin', [RegisterController::class, 'index']);
+Route::get('/signin', [RegisterController::class, 'index'])->name('signin');
 
-// Route::get('/login', [RegisterController::class, 'index']);
+Route::post('/signin', [RegisterController::class, 'store']);

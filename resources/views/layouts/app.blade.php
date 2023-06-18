@@ -9,10 +9,12 @@
     <body class="bg-gray-100 grid grid-rows-[auto_1fr_auto] min-h-screen">
         <header class="bg-white shadow border-b p-5">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-3xl font-black">DevStagram</h1>
-                <nav class="flex gap-2 items-center">
+                <a href="/" class="text-3xl font-black">
+                    DevStagram
+                </a>
+                <nav class="flex gap-4 items-center">
                     <a href="#" class="font-bold uppercase text-gray-600 text-sm">Ingresar</a>
-                    <a href="#" class="font-bold uppercase text-gray-600 text-sm">Crear cuenta</a>
+                    <a href="{{ route('signin') }}" class="font-bold uppercase text-gray-600 text-sm">Crear cuenta</a>
                 </nav>
             </div>
         </header>

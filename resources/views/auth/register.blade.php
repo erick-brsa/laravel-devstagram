@@ -10,7 +10,8 @@
             <img src="{{ asset('./img/registrar.jpg') }}" alt="Imagen registro usuarios">
         </div>
         <div class="bg-white lg:w-1/3 p-6 rounded-lg shadow">
-            <form class="flex flex-col gap-5">
+            <form action="{{ route('signin') }}" method="POST" class="flex flex-col gap-5" novalidate>
+                @csrf
                 <div>
                     <label for="name" class="text-gray-500 block font-bold uppercase mb-2">
                         Nombre
@@ -20,8 +21,12 @@
                         name="name" 
                         type="text" 
                         placeholder="Tu nombre" 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('name') border-red-400 @enderror"
+                        value="{{ old('name') }}"
                     />
+                    @error('name')
+                    <p class="bg-red-100 text-red-700 border border-red-400 font-semibold rounded-lg my-2 text-sm py-2 px-4">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="username" class="text-gray-500 block font-bold uppercase mb-2">
@@ -29,11 +34,15 @@
                     </label>
                     <input 
                         id="username" 
-                        name="name" 
+                        name="username" 
                         type="text" 
                         placeholder="Tu nombre de usuario" 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('username') border-red-400 @enderror"
+                        value="{{ old('username') }}"
                     />
+                    @error('username')
+                    <p class="bg-red-100 text-red-700 border border-red-400 font-semibold rounded-lg my-2 text-sm py-2 px-4">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="email" class="text-gray-500 block font-bold uppercase mb-2">
@@ -44,8 +53,12 @@
                         name="email" 
                         type="email" 
                         placeholder="Tu correo electrónico" 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('email') border-red-400 @enderror"
+                        value="{{ old('email') }}"
                     />
+                    @error('email')
+                    <p class="bg-red-100 text-red-700 border border-red-400 font-semibold rounded-lg my-2 text-sm py-2 px-4">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="password" class="text-gray-500 block font-bold uppercase mb-2">
@@ -56,8 +69,11 @@
                         name="password" 
                         type="password" 
                         placeholder="Contraseña" 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg @error('password') border-red-400 @enderror"
                     />
+                    @error('password')
+                    <p class="bg-red-100 text-red-700 border border-red-400 font-semibold rounded-lg my-2 text-sm py-2 px-4">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div>
                     <label for="password_confirmation" class="text-gray-500 block font-bold uppercase mb-2">
