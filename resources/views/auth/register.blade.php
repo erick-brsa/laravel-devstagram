@@ -68,7 +68,7 @@
                         id="password" 
                         name="password" 
                         type="password" 
-                        placeholder="Contraseña" 
+                        placeholder="Contraseña"
                         class="border p-3 w-full rounded-lg @error('password') border-red-400 @enderror"
                     />
                     @error('password')
@@ -82,8 +82,8 @@
                     <input 
                         id="password_confirmation" 
                         name="password_confirmation" 
-                        type="password_confirmation" 
-                        placeholder="Confirmar contraseña" 
+                        type="password" 
+                        placeholder="Confirmar contraseña"
                         class="border p-3 w-full rounded-lg"
                     />
                 </div>
