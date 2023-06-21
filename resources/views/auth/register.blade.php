@@ -7,7 +7,7 @@
 @section('main')
     <div class="lg:flex lg:justify-center md:gap-10 md:items-center lg:rounded ">
         <div class="lg:w-2/3 p-5">
-            <img src="{{ asset('./img/registrar.jpg') }}" alt="Imagen registro usuarios">
+            <img src="{{ asset('./img/registrar.jpg') }}" alt="Imagen registro usuarios" class="rounded-lg">
         </div>
         <div class="bg-white lg:w-1/3 p-6 rounded-lg shadow">
             <form action="{{ route('signin') }}" method="POST" class="flex flex-col gap-5" novalidate>
