@@ -49,4 +49,9 @@ class User extends Authenticatable
         // One to Many (un usuario con múltiples publicaciones)
         return $this->hasMany(Post::class, 'user_id');
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'user_id');
+    }
 }

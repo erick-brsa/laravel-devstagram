@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\imageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
@@ -37,5 +38,9 @@ Route::post('/posts/create', [PostController::class, 'store'])->name('posts.stor
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::post('/{user:username}/posts/{post}', [CommentController::class, 'store'])->name('comments.store');
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::post('/images', [imageController::class, 'store'])->name('image.store');
+
+Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
+Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
