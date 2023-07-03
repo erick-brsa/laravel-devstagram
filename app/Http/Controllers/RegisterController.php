@@ -25,7 +25,12 @@ class RegisterController extends Controller
         // Validation
         $this->validate($request, [
             'name' => 'required|max:30',
-            'username' => 'required|unique:users|min:5|max:20',
+            'username' => [
+                'required', 
+                'unique:users',
+                'min:5', 'max:20',
+                'not_in:twitter,edit-profile'
+            ],
             'email' => 'required|unique:users|email|max:60',
             'password' => 'required|min:6|max:20|confirmed'
         ]);
