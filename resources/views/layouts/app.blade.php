@@ -11,7 +11,7 @@
     <body class="bg-gray-100 grid grid-rows-[auto_1fr_auto] min-h-screen">
         <header class="bg-white shadow border-b p-5">
             <div class="container mx-auto flex justify-between items-center">
-                <a href="/" class="text-3xl font-black">
+                <a href="{{ route('home') }}" class="text-3xl font-black">
                     DevStagram
                 </a>
 

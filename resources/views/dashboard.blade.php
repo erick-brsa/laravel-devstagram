@@ -74,7 +74,7 @@
             <div class="grid grid-cols-3 xl:grid-cols-4 gap-2 md:gap-5">
                 @foreach($posts as $post)
                     <div>
-                        <a href="{{ route('posts.show', ['post' => $post, 'user' => $user]) }}">
+                        <a href="{{ route('posts.show', ['post' => $post, 'user' => $post->user]) }}">
                             <img src="{{ asset('uploads') . '/' . $post->image }}" alt="Imagen del post {{ $post->title }}">
                         </a>
                     </div>

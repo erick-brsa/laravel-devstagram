@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\imageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
@@ -22,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/signin', [RegisterController::class, 'index'])->name('signin');
 Route::post('/signin', [RegisterController::class, 'store']);
