@@ -24,17 +24,45 @@
                     @endauth
                 </div>
                 <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                    0
-                    <span class="font-normal">Seguidores</span>
+                    {{ $user->followers->count() }}
+                    <span class="font-normal">
+                        @choice('seguidor|seguidores', $user->followers->count())
+                    </span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
-                    <span class="font-normal">Seguidos</span>
+                    {{ $user->following->count() }}
+                    <span class="font-normal">
+                        @choice('seguido|seguidos', $user->following->count())
+                    </span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
                     {{ $posts->count() }}
                     <span class="font-normal">Publicaciones</span>
                 </p>
+                @auth
+                    @if($user->id !== auth()->user()->id)
+                        @if(!$user->isFollowing(auth()->user()))
+                            <form action="{{ route('users.follow', $user) }}" method="POST">
+                                @csrf
+                                <input 
+                                    type="submit"
+                                    class="bg-blue-500 hover:bg-blue-600 transition-colors text-white uppercase rounded-lg px-3 py-1 font-bold cursor-pointer"
+                                    value="Seguir"
+                                />
+                            </form>
+                        @else
+                            <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <input 
+                                    type="submit"
+                                    class="bg-red-500 hover:bg-red-600 transition-colors text-white uppercase rounded-lg px-3 py-1 font-bold cursor-pointer"
+                                    value="Dejar de seguir"
+                                />
+                            </form>
+                        @endif
+                    @endauth
+                @endif
             </div>
         </div>
     </div>
