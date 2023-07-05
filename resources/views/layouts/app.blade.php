@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        @livewireStyles
     </head>
     <body class="bg-gray-100 grid grid-rows-[auto_1fr_auto] min-h-screen">
         <header class="bg-white shadow border-b p-5">
@@ -54,5 +55,6 @@
         <footer class="text-gray-500 text-center font-bold uppercase p-5">
             DevStagram - Todos los derechos reservados {{ now()->year }}
         </footer>
+        @livewireScripts
     </body>
 </html>
